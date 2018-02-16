@@ -1,0 +1,82 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sample Reach App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+</head>
+
+<body>
+    <h5>This is new file abcd</h5>
+    <div id="abhi"></div>
+
+    <script type="text/babel">
+
+    const addOption = (e) => {
+        e.preventDefault();
+        console.log('add option was called');
+        const optionValue=e.target.option.value;
+        user.options.push(optionValue);
+        e.target.option.value='';
+        render();
+    }
+
+    const getLocation = () => {
+        return <strong>{user.location ? user.location: "unknown"} </strong>;
+    }
+    const app = {
+    
+        title:"Welcome to the React app",
+        subtitle:"see the object below"
+
+    };
+
+    const user = {
+        name:"Abhilash Vishwanadula",
+        location: "Hyderabad",
+        company:"votigo",
+        options:["one","two"]
+       
+    };
+
+const render = () => {
+const template = (
+    <div>
+        <h5>{app.title}</h5>
+        <h5>{app.subtitle}</h5>
+        <h5>{user.name}</h5>
+        <p> Name: {user.name ? user.name : "unknown"} </p>
+        <p>Location: {getLocation()} </p>
+        <ul>
+            <li key={user.options[1]}>{user.options[1]}</li>
+            <li key={user.options[0]}>{user.options[0]}</li>
+        </ul>
+        <ul>
+        {
+                user.options.map((option) => {
+                return <li key={option}>{option}</li>
+            })
+        }
+        </ul>
+       <form onSubmit={addOption}>
+        <input type="text" name="option"/>
+        <button>Add Options </button>
+        </form>
+        </div>
+    
+)
+const getAbhi = document.getElementById('abhi');
+    ReactDOM.render(template, getAbhi);
+            
+}
+render();
+
+        </script>
+
+   
+</body>
+</html>

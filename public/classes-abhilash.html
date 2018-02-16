@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sample Reach App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+</head>
+<body>
+    <div id="assignment2"></div>
+
+    <script type="text/babel">
+
+class Person  {
+    constructor(name='Anonymous')
+        {this.name=name;}
+
+        getDescription() {
+            const desc = `This person is called ${this.name}`;
+            console.log(desc);
+        }
+    
+}
+
+class Student extends Person {
+    constructor(name='Anonymous', location='India') {
+        super(name);
+        this.location=location;
+    }
+    getDetails(){
+        console.log(`This is ${this.name} from ${this.location}`);
+    }
+}
+
+const me = new Person('praharsh');
+console.log(me);
+me.getDescription();
+const student = new Student('Abhilash','India');
+student.getDetails();
+
+</script>
+
+</body>
+</html>
